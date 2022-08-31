@@ -2,23 +2,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>N</title>
-    <title> Vertical Menu </title>
-    <meta name ="viewport" content ="width=device-width, initial-scale=1">
+    <title>ConversionUtil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     {% include 'includes/_navbar.html'%}
     {% include 'includes/_messages.html' %}
-    
+
 
     {% block body %}{% endblock %}
 
-
-    
+    <br>
+    <footer class="footer" style="background-color: FFFFFF;">
+        <div class="container" style="text-align:center">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>ConversionUtil</strong> by Peter Bryant<img src="{{url_for('static', filename='images/transfer.png')}}" alt="transfer" width="35"
+                    height="auto"> <br>
+                    <span style="font-size:xx-small; color:grey; font-style:italic">Built with Flask.</span>
+                </p>
+                
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
