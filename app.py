@@ -39,6 +39,5 @@ def convert():
             return render_template('convert.html',  decimal=decimal, binary=binary, hexdecimal=hexdecimal, octdecimal=octdecimal)
     return render_template('convert.html')
 
-
 if __name__ == '__main__':
     app.run(debug=True)
