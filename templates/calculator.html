@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<!-- Center a header that says, "Welcome to the homepage" -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Binary/Decimal/Hex/Octal Calculator <img src="/static/images/calculator.gif"
+                    alt="calculator" width="55px" height="auto"></h2>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Create a form with 5 text fields -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/calculator" method="POST">
+                <div style="font-size:small;">
+                    <h6>Tips for using the calculator:</h6>
+                    <ul>
+                        <li>If you select <b>NOT</b> as your operation, only provide an operand for "Operand #1".</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+                    </ul>
+                </div>
+                <!-- Choose a Numbering System Select -->
+                <div>
+                    <label for="num">Choose a Numbering System:</label><br>
+                    <select id="options" name="options">
+                        <option value="decimal">Decimal</option>
+                        <option value="binary">Binary</option>
+                        <option value="hexadecimal">Hexadecimal</option>
+                        <option value="octal">Octal</option>
+                    </select>
+                </div><br>
+                <!-- Operand #1 -->
+                <div class="form-group">
+                    <label for="op1">Operand #1:</label>
+                    <input type="text" class="form-control" id="op1" name="op1" placeholder="Enter First Operand">
+                </div>
+                <!-- Choose a Operation -->
+                <div>
+                    <label for="operation">Choose an Operation:</label><br>
+                    <select id="operation" name="operation">
+                        <option value="addition">Add (+)</option>
+                        <option value="subtraction">Subtract (-)</option>
+                        <option value="multiplication">Multiply (*)</option>
+                        <option value="and">AND (&)</option>
+                        <option value="or">OR (|)</option>
+                        <option value="not">NOT (~)</option>
+                    </select>
+                    <p style="font-size:small; color:grey">Note: If using <b>AND</b>, <b>OR</b>, or <b>NOT</b> with
+                        decimal Numbering System, we will convert the operand to unsigned binary and perform the bitwise
+                        operation.</p>
+                </div>
+                <!-- Operand #2 -->
+                <div class="form-group">
+                    <label for="op2">Operand #2:</label>
+                    <input type="text" class="form-control" id="op2" name="op2" placeholder="Enter Second Operand">
+                </div><br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if result and operation != 'NOT'%}
+<!-- Display the result -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{options}}: {{op1}} {{operation}} {{op2}} = {{ result }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% elif result and operation == 'NOT'%}
+<!-- Display the result -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Steps: {{options}}->Unsigned Binary->Apply Bitwise NOT<br><br>{{options}} to Binary Conversion: {{op1_int}} is {{op1}} in unsigned binary <br> Apply Bitwise NOT: {{operation}} {{op1}} = {{ result }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endif %}
+
+
+{% endblock %}

@@ -4,6 +4,10 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
 
+def not_bin(bin_string):
+    return ''.join('1' if x == '0' else '0' for x in bin_string)
+
+
 # Home PAGE
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -38,6 +42,67 @@ def convert():
             hexdecimal = hex(decimal)[2:].upper()
             return render_template('convert.html',  decimal=decimal, binary=binary, hexdecimal=hexdecimal, octdecimal=octdecimal)
     return render_template('convert.html')
+
+# Binary/Decimal/Hex/Octal Calculator PAGE
+@app.route('/calculator', methods=['GET','POST'])
+def calculator():
+    if request.method == 'POST':
+        if request.form['options']:
+            if request.form['options'] == 'decimal':
+                try:
+                    operand_1 = request.form.get('op1')
+                    operand_2 = request.form.get('op2')
+                    operation = request.form.get('operation')
+                    if operation == 'addition':
+                        operation = '+'
+                        result = int(operand_1, 10) + int(operand_2, 10)
+                    elif operation == 'subtraction':
+                        operation = '-'
+                        result = int(operand_1, 10) - int(operand_2, 10)
+                    elif operation == 'multiplication':
+                        operation = '*'
+                        result = int(operand_1, 10) * int(operand_2, 10)
+                    elif operation == 'and':
+                        operation = 'AND'
+                        result = int(operand_1, 10) & int(operand_2, 10)
+                    elif operation == 'or':
+                        operation = 'OR'
+                        result = int(operand_1, 10) | int(operand_2, 10)
+                    elif operation == 'not':
+                        operation = 'NOT'
+                        op1_int = int(operand_1, 10)
+                        op1_bin = bin(op1_int)[2:]
+                        result = not_bin(bin(op1_int)[2:])
+                        return render_template('calculator.html', result=result, op1_int=op1_int, op1 = op1_bin, op2 = operand_2, operation = operation, options = 'Decimal')
+
+                    return render_template('calculator.html', result=result, op1 = operand_1, op2 = operand_2, operation = operation, options = 'Decimal')
+                except Exception as e:
+                    print(e)
+                    error = 'Invalid input, please fill out all fields!'
+                    return render_template('calculator.html', error=error)
+            elif request.form['options'] == 'binary':
+                try:
+                    operand_1 = request.form.get('op1')
+                    operand_2 = request.form.get('op2')
+                    operation = request.form.get('operation')
+                    if operation == 'addition':
+                        operation = '+'
+                        result = bin(int(operand_1, 2) + int(operand_2, 2))[2:]
+                    elif operation == 'subtraction':
+                        operation = '-'
+                        result = bin(int(operand_1, 2) - int(operand_2, 2))[2:]
+                    elif operation == 'multiplication':
+                        operation = '*'
+                        result = bin(int(operand_1, 2) * int(operand_2, 2))[2:]
+                    return render_template('calculator.html', result=result, op1 = operand_1, op2 = operand_2, operation = operation , options = 'Binary')
+                except:
+                    error = 'Invalid input, please fill out all fields!'
+                    return render_template('calculator.html', error=error)
+                
+
+        return render_template('calculator.html')
+        
+    return render_template('calculator.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
