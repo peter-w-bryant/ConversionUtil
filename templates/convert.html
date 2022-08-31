@@ -1,11 +1,14 @@
 {% extends 'layout.html' %}
+
+
 {% block body %}
 
 <!-- Center a header that says, "Welcome to the homepage" -->
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center">Binary/Decimal/Hex/Octal Converter <img src="/static/images/calculator.gif" alt="calculator" width="55px" height="auto"></h2>
+            <h2 class="text-center">Binary/Decimal/Hex/Octal Converter <img src="/static/images/calculator.gif"
+                    alt="calculator" width="55px" height="auto"></h2>
         </div>
     </div>
 </div>
@@ -14,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form action="/convertDecBin" method="POST">
+            <form action="/convert" method="POST">
                 <div class="form-group">
                     <label for="dec">Decimal</label>
                     <input type="text" class="form-control" id="dec" name="dec" placeholder="Enter decimal number">
@@ -49,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr> 
+                    <tr>
                         <td>{{ decimal }}</td>
                         <td>{{ binary }}</td>
                         <td>{{ hexdecimal }}</td>
@@ -59,5 +62,14 @@
             </table>
         </div>
     </div>
+    <br>
 
-{% endblock %}
+    <!-- Insert static/images/conversionTable.png -->
+    <h4 style="text-align:center">Binary/Decimal/Hex/Octal Conversion Table</h4>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <img src="/static/images/conversionTable.png" alt="conversionTable" width="250px" height="auto">
+        </div>
+    </div>
+
+    {% endblock %}
