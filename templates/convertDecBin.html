@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<!-- Center a header that says, "Welcome to the homepage" -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Binary/Decimal/Hex/Octal Converter <img src="/static/images/calculator.gif" alt="calculator" width="55px" height="auto"></h2>
+        </div>
+    </div>
+</div>
+
+<!-- Create a form with 5 text fields -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/convertDecBin" method="POST">
+                <div class="form-group">
+                    <label for="dec">Decimal</label>
+                    <input type="text" class="form-control" id="dec" name="dec" placeholder="Enter decimal number">
+                </div>
+                <div class="form-group">
+                    <label for="bin">Binary</label>
+                    <input type="text" class="form-control" id="bin" name="bin" placeholder="Enter binary number">
+                </div>
+                <div class="form-group">
+                    <label for="hex">Hexadecimal</label>
+                    <input type="text" class="form-control" id="hex" name="hex" placeholder="Enter hexadecimal number">
+                </div>
+                <div class="form-group">
+                    <label for="oct">Octal</label>
+                    <input type="text" class="form-control" id="oct" name="oct" placeholder="Enter octal number">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create a table to display the results -->
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Decimal</th>
+                        <th scope="col">Binary</th>
+                        <th scope="col">Hexadecimal</th>
+                        <th scope="col">Octal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>{{ decimal }}</td>
+                        <td>{{ binary }}</td>
+                        <td>{{ hexdecimal }}</td>
+                        <td>{{ octdecimal }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
