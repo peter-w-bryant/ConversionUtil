@@ -113,7 +113,7 @@ def calculator():
                         operation = 'NOT'
                         op1_int = int(operand_1, 2)
                         op1_bin = bin(op1_int)[2:]
-                        result = not_bin(bin(op1_int)[2:])
+                        result = '0b'+ not_bin(op1_bin)
                         return render_template('calculator.html', result=result, op1 = operand_1, op1_bin = op1_bin, operation = operation , options = 'Binary')
                     return render_template('calculator.html', result=result, op1 = operand_1, op2 = operand_2, operation = operation , options = 'Binary')
                 except Exception as e:
