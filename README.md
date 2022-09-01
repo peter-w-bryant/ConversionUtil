@@ -1,4 +1,4 @@
-# ConversionUtil: https://conversion-util.herokuapp.com/
+# ConversionUtil Web Application: https://conversion-util.herokuapp.com/
 A web-based application for converting between Binary / Decimal / Hexadecimal / Octal as well a calculator for performing operations on operands of type Binary / Decimal / Hexadecimal / Octal.
 
 <h4>Running the ConversionUtil Application Locally</h4>
