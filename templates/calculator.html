@@ -23,12 +23,9 @@
                 <div style="font-size:small;">
                     <h6>Tips for using the calculator (Please Read):</h6>
                     <ul>
-                        <li><b>Only integer valued digits</b> are allowed when using the decimal numbering system.</li>
+                        <li><b>Only integer valued digits</b> are allowed when using the <b>decimal</b> numbering system.</li>
                         <li>If you select <b>NOT</b> as your operation, only provide an operand for "Operand #1".</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
+                        <li>If you select <b>NOT</b> as your operation and <b>decimal</b> as your numbering system, the returned value is in unsigned binary.</li>
                     </ul>
                 </div>
                 <!-- Choose a Numbering System Select -->
@@ -106,9 +103,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Steps: {{options}}->Unsigned Binary->Apply Bitwise NOT<br>
-                            {{options}} to Binary Conversion: {{op1_int}} is {{op1}} in unsigned binary<br> 
-                            Apply Bitwise NOT: {{operation}}{{op1}} = {{ result }}</td>8
+                        <td>{{op1}} in {{options}} = {{op1_bin}} in Binary</td>
+                    </tr>
+                    <tr>
+                        <td>{{operation}}({{op1_bin}}) = {{ result }}</td>
                     </tr>
                 </tbody>
             </table>
