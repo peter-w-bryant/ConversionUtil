@@ -4,11 +4,27 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center">Welcome to the ConversionUtil! <img src="/static/images/calculator.gif" alt="calculator" width="55px" height="auto"></h2>
-            <!-- Insert static/images/calculator.gif -->
-            
+            <h2 class="text-center">Welcome to the ConversionUtil! <img src="/static/images/calculator.gif"
+                    alt="calculator" width="55px" height="auto"></h2>
+            <br>
+            <p>A web-application utility for <u>converting between</u> and <u>calculating operations</u> on
+                <b>Binary/Decimal/Hexadecimal/Octal</b> values.
+            </p>
+            <!-- Create two buttons for coverter and calculator -->
+            <div style="text-align:center">
+                <div>
+                    <a href="/convert" class="btn btn-primary btn-md" role="button" aria-pressed="true"
+                        style="">Converter</a>
+                    <a href="/calculator" class="btn btn-primary btn-md" role="button"
+                        aria-pressed="true">Calculator</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <br>
 
-{% endblock %}
+    <div style="text-align:center">
+        <img src="/static/images/Decimal_to_Binary_Conversion.gif" alt="coverter_calculator" width="60px" height="auto">
+    </div>
+    <br>
+    {% endblock %}

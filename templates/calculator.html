@@ -21,8 +21,9 @@
         <div class="col-md-12">
             <form action="/calculator" method="POST">
                 <div style="font-size:small;">
-                    <h6>Tips for using the calculator:</h6>
+                    <h6>Tips for using the calculator (Please Read):</h6>
                     <ul>
+                        <li><b>Only integer valued digits</b> are allowed when using the decimal numbering system.</li>
                         <li>If you select <b>NOT</b> as your operation, only provide an operand for "Operand #1".</li>
                         <li></li>
                         <li></li>
@@ -57,7 +58,7 @@
                         <option value="not">NOT (~)</option>
                     </select>
                     <p style="font-size:small; color:grey">Note: If using <b>AND</b>, <b>OR</b>, or <b>NOT</b> with
-                        decimal Numbering System, we will convert the operand to unsigned binary and perform the bitwise
+                        decimal numbering system, ConversionUtil will convert the operand to unsigned binary and perform the bitwise
                         operation.</p>
                 </div>
                 <!-- Operand #2 -->
