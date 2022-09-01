@@ -1,2 +1,2 @@
 # ConversionUtil: https://conversion-util.herokuapp.com/
-UNDER MAINTENANCE: A web-based application for converting between Binary/Decimal/Hex/Octal as well a calculator for performing operations on operands of type Binary/Decimal/Hexadecimal/Octal.
+A web-based application for converting between Binary/Decimal/Hex/Octal as well a calculator for performing operations on operands of type Binary/Decimal/Hexadecimal/Octal.
