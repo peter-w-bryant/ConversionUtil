@@ -150,7 +150,6 @@ def calculator():
                         result = hex(decimal)
                         return render_template('calculator.html', result=result, op1 = operand_1, op1_bin = slice_bin, operation = operation , options = 'Hexadecimal')
                     return render_template('calculator.html', result=result, op1 = operand_1, op2 = operand_2, operation = operation , options = 'Hexadecimal')
-
                 except Exception as e:
                     print(e)
                     error = 'Invalid input, please fill out all fields correctly!'
@@ -185,16 +184,11 @@ def calculator():
                         result = oct(decimal)
                         return render_template('calculator.html', result=result, op1 = operand_1, op1_bin = slice_bin, operation = operation , options = 'Octal')
                     return render_template('calculator.html', result=result, op1 = operand_1, op2 = operand_2, operation = operation , options = 'Octal')
-
-
                 except Exception as e:
                     print(e)
                     error = 'Invalid input, please fill out all fields correctly!'
                     return render_template('calculator.html', error=error)
-                
-
         return render_template('calculator.html')
-        
     return render_template('calculator.html')
 
 if __name__ == '__main__':
