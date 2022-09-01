@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center">Binary/Decimal/Hex/Octal Calculator <img src="/static/images/calculator.gif"
+            <h2 class="text-center">Binary/Decimal/Hexadecimal/Octal Calculator <img src="/static/images/calculator.gif"
                     alt="calculator" width="55px" height="auto"></h2>
         </div>
     </div>
@@ -58,15 +58,14 @@
                         <option value="not">NOT (~)</option>
                     </select>
                     <p style="font-size:small; color:grey">Note: If using <b>AND</b>, <b>OR</b>, or <b>NOT</b> with
-                        decimal numbering system, ConversionUtil will convert the operand to unsigned binary and perform the bitwise
-                        operation.</p>
+                        decimal numbering system, ConversionUtil will convert the operand to unsigned binary and perform
+                        the bitwise operation.</p>
                 </div>
                 <!-- Operand #2 -->
                 <div class="form-group">
                     <label for="op2">Operand #2:</label>
                     <input type="text" class="form-control" id="op2" name="op2" placeholder="Enter Second Operand">
-                </div><br>
-
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
@@ -107,7 +106,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Steps: {{options}}->Unsigned Binary->Apply Bitwise NOT<br><br>{{options}} to Binary Conversion: {{op1_int}} is {{op1}} in unsigned binary <br> Apply Bitwise NOT: {{operation}} {{op1}} = {{ result }}</td>
+                        <td>Steps: {{options}}->Unsigned Binary->Apply Bitwise NOT<br><br>{{options}} to Binary
+                            Conversion: {{op1_int}} is {{op1}} in unsigned binary <br> Apply Bitwise NOT: {{operation}}
+                            {{op1}} = {{ result }}</td>
                     </tr>
                 </tbody>
             </table>
